@@ -1,0 +1,30 @@
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.*;
+public class MessageFrame extends JFrame
+{
+
+	setTitle("Message in a Bottle");
+	setSize(500,500);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	MessagePanel panel = new MessagePanel();
+	add(panel);
+	setVisible(true);
+}
+public class MessagePanel extends JPanel
+{
+	public static final int BOTTLE_TOP = 50;
+	public static final int X_BOTTLE_LEFT_NECK =  200;
+	public static final int Y_BOTTLE_LEFT_NECK = 200;
+	public static final int X2_BOTTLE_LEFT_NECK = 250;
+	public static final int Y2_BOTTLE_LEFT_NECK = 250;
+	public static final int X_BOTTLE_RIGHT_NECK = 150;
+	public static final int Y_BOTTLE_RIGHT_NECK = 150;
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		g.drawString("Message in a bottle", 250,250);
+		g.drawLine(*x1*, *y1* , *x2* , *x3*);
+	}
+}

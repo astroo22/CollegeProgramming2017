@@ -1,0 +1,240 @@
+++++++++++++++ from panel
+	
+	//~~~~~~~~~~~cant do this with just 3 files going to need to at least make an action listener
+	// class and a  class that deals with creating the game board. so basically seperating the creation
+	// and the mechanics behind the creation
+	//lol i actually created like everything else before even starting this file... this is not how i was supposed
+	// to do this at all. Anyway i really hope it works whenever i compile 
+	// ~
+	// ok my panel what does it need: ok so im going to need to call up some buttons here im going to need to call 
+	// my logic handler and the frame obviously then i should declare my panel and add in the logic and frame as 
+	// the uhhhh things i cant remember the name of
+	// then ima use those buttons and create the grid layout using a bunch of the notes i have from class
+	// that should be good to start on 
+	
+	
+	
+	
+	
+		//ok so hard part going to be a little bit of trial and error till i figure out exactly how to get this to works
+		// going to create the buttons then create my layout with the grid then use a loop of sorts to 
+		// iterate through all of my buttons to create mai almost somewhat finished product
+		// so this is another one of those huge calls where i pull s from fricken gameboard again or maybe not because
+		// the board was called in logic so does that technically work in the heiarchy can i just call gameboard
+		// even tho it isn't listed above? yea i think i can but i think this would be easier to just get tiles.length
+		// as s is in a method and im just avoiding possible errors
+		
+		
+				/*
+				//ok heres where i gotz to be smarticle if its flagged i should put an F 
+				// and if it is not covered i need to add the number of bombs nearby on top
+				// then if it isn't either of these cases it should be the default
+				//so
+				/*
+				if(logic.gameBoard.tiles1[i][ii].hasFlag())
+				{
+					button = new JButton("F");
+					repaint();
+				}
+				else if(!logic.gameBoard.tiles1[i][ii].hasCover())
+				{
+					button = new JButton("" + logic.gameBoard.tiles1[i][ii].getBombsTouching());
+					
+				}
+				else 
+				{ */
+					
+					/*
+					button.setForeground(Color.white);
+					button.setBackground(Color.black);*/
+					
+				//}
+				/*
+				//ok now that i have them created i need them to respond to mouse clicks
+				button.addMouseListener(new MouseThing(logic, buttons, mineSweeperFrame, this));
+				//took me alot longer than i care to admit to to realize i needed to put this as the 3rd thing
+				//buttons[i][ii] = button; 
+				//also took me forever to figure out i needed this 
+				//EDIT: ok so had some problems down the road here and i need a way to call specific buttons 
+				//based on something ~~~ leaving this to figure out tomorrow sleep time now
+				//~~
+				//~~ LEFT OFF HERE
+				//~~ 
+				// EDIT2: so this took 8 and a half years but i think i found a solution 
+				// from two of my old projects i had a lot of help with last semester actually partially from some
+				// commented out code lol. Going to add the location of the specific button into the tooltiptext
+				// then pull up the text in mouse thing parse it out based on the , and pass that into those
+				// if statements using them as string tokens
+				// ~CONTINUED IN MOUSETHING~
+				button.setToolTipText(i + ", " + ii);
+				*/
+			
+		
+		/*
+		for(int i=0; i< 10; i++)
+		{
+			for(int ii=0; ii<10; ii++)
+			{
+				add(Buttons[i][ii]);
+			}
+		}
+		*/
+	
+	//ok now i need my paint component or u know nothing will be displayed
+	/*
+	@Override
+	public void paintComponent(Graphics g)
+	{
+		//so here we go again with all dem for loops
+		super.paintComponent(g);
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~READ THIS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		//~~~~~~~~~~~~~~~~~~~~~~OKAY I ACUTALLY JUST REALIZED SOMETHING ~~~~~~~~~~~~~~~~~~~~~~~
+		// FOR ANYBODY LOOKING AT THIS AND OR GRADING THIS IM COLOR BLIND
+		// I HAVE NO IDEA IF BASED ON THE D2L THING IF ANY OF THESE THINGS
+		// ARE SUPPOSED TO BE A CERTAIN COLOR OR SOMETHING LIKE THAT 
+		// i will include this in like a note as i turn it in but heres this just in case 
+		
+		for(int i=0; i < logic.gameBoard.tiles1.length-10; i++)
+		{
+			for(int ii=0; i < logic.gameBoard.tiles1.length-10; ii++)
+			{
+				//back to our regularly schedualed programming lol i hate myself for this joke
+				//So i remember hearing a comment about this in class by a student i think
+				// the flag is the highest precidence so it has to be the first thing in the repaint 
+				
+				if(logic.gameBoard.tiles1[i][ii].hasFlag())
+				{
+					buttons[i][ii].setText("F");
+					buttons[i][ii].setBackground(Color.RED);
+					buttons[i][ii].setForeground(Color.black);
+					
+				}
+				// so now i need to set the tiles1 without cover to display the number of bombs nearby
+				if(!logic.gameBoard.tiles1[i][ii].hasCover())
+				{
+					logic.gameBoard.findTouchingBombs();
+					//ok so here i need all the tiles without cover to display the nearby bombs number
+					//should i make this different for tiles with 0 touching bombs? falling back to d2l
+					// and it doesn't look like it so just make this standard then
+						if(logic.gameBoard.tiles1[i][ii].getBombsTouching()>0)
+						{
+							buttons[i][ii].setText("" +logic.gameBoard.tiles1[i][ii].getBombsTouching());
+							//^^ needed to add "" + at the begining converts the entire thing to string this way
+							// guna go with standard minesweeper with black background and gray forground...
+							// i think thats what colors it was at least
+							buttons[i][ii].setForeground(Color.white);
+							buttons[i][ii].setBackground(Color.blue);
+						}
+						else 
+						{
+							buttons[i][ii].setForeground(Color.white);
+							buttons[i][ii].setBackground(Color.white);
+						}
+					
+				}
+				//ok so now i need to make the covered ones a standard color so uhhh how about blue? blue sounds
+				// sexy
+				else if(logic.gameBoard.tiles1[i][ii].hasCover())
+				{
+					buttons[i][ii].setForeground(Color.black);
+					buttons[i][ii].setText("");
+				}
+				
+			}
+			
+		}
+	}
+	*/
+	/*
+					@Override
+					public void mousePressed(MouseEvent e)
+					{
+						if(SwingUtilities.isRightMouseButton(e))
+						{
+							logic.addFlag(i,ii);
+							
+						}
+						else if(SwingUtilities.isLeftMouseButton(e))
+						{	
+							
+							logic.clickedTile(i,ii);
+							
+						}
+					}
+				});
+				mineSweeperPanel.thing.add(Buttons[i][ii]); */
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				~~~~~~~~~~~~~~~~~~
+				mouse thing unused
+				Logic logic;
+	MineSweeperFrame mineSweeperFrame;
+	MineSweeperPanel mineSweeperPanel;
+	JButton[][] buttons;
+	public MouseThing(Logic logic, JButton[][] buttons, MineSweeperFrame mineSweeperFrame, MineSweeperPanel mineSweeperPanel)
+	{
+		this.logic = logic;
+		this.mineSweeperFrame = mineSweeperFrame;
+		this.mineSweeperPanel = mineSweeperPanel;
+		this.buttons = buttons;
+	}
+	//ok so copying some cough *alot* cough of the code from class here
+	@Override
+	public void MousePressed(MouseEvent e)
+	{
+		super.mousePressed(e);
+		JButton button = (JButton) e.getSource();
+		
+		
+		//so pretty standard here if left mouse button need to click tile and find bombs nearby
+		// if it doesn't find them then clear spaces nearby this is code that may or may not be used
+		// depends if i can figure it out or not.
+		//~~
+		//~~CONTINUED HERE
+		//~~
+		// so heres where i was having my erros figuring which button to do the things to
+		// heres my solution take the tooltiptext from MineSweeperPanel
+		// so~
+		/*
+		String[] text = button.getToolTipText().split(", ");
+		int r = Integer.parseInt(text[0]);
+		int c = Integer.parseInt(text[1]);
+		
+		
+		if(SwingUtilities.isLeftMouseButton(e))
+		{
+			
+			if(logic.gameBoard.tiles1[r][c].getBombsTouching() == 0)
+			{
+				logic.clickedTile(r,c);
+				logic.gameBoard.findTouchingBombs();
+				
+				
+				// also might add something here if they lose? 
+				
+			}
+			else
+			{
+				logic.clickedTile(r,c);
+				logic.gameBoard.findTouchingBombs();
+			}
+		}
+		//more class code stealing pretty basic if right click add flag
+		else if(SwingUtilities.isRightMouseButton(e))
+		{
+			logic.addFlag(r,c);
+			//might add something here if they win
+		}
+		mineSweeperPanel.repaint();
+		*/

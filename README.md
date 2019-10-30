@@ -1,6 +1,6 @@
-# CollegeProgramming2017
+# CollegeProgramming
 
-This folder includes most of the programming done in my first semester 2017. 
+This folder includes most of the programming done in my first semester of 2017 and on. 
 
 Languages used:
 * Java
